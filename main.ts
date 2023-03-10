@@ -1,6 +1,6 @@
 let Item = false
 basic.forever(function () {
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 15 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) <= 15 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
         Item = Math.randomBoolean()
         if (Item == true) {
             maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 200)
@@ -17,7 +17,7 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) <= 10 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
         Item = Math.randomBoolean()
         if (Item == true) {
             maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
@@ -34,7 +34,7 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 7 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) <= 7 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
         Item = Math.randomBoolean()
         if (Item == true) {
             maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 100)
@@ -51,7 +51,7 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 4 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) <= 4 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
         Item = Math.randomBoolean()
         if (Item == true) {
             maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 255)
@@ -65,5 +65,17 @@ basic.forever(function () {
         }
     } else {
         maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 255)
+    }
+})
+basic.forever(function () {
+    while (Item == false) {
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+        basic.pause(100)
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+    }
+    while (Item == true) {
+        maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
+        basic.pause(100)
+        maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
     }
 })
