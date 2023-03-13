@@ -43,7 +43,7 @@ basic.pause(100)
 music.setVolume(60)
 music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, 1, 3721, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
 basic.showString("ON")
-basic.pause(1000)
+basic.pause(500)
 music.setVolume(255)
 basic.forever(function () {
     if (maqueen.Ultrasonic(PingUnit.Centimeters) >= 10 && maqueen.Ultrasonic(PingUnit.Centimeters) <= 12 && maqueen.Ultrasonic(PingUnit.Centimeters) != 0) {
@@ -117,6 +117,18 @@ basic.forever(function () {
     Item = Math.randomBoolean()
     while (Item != (true || false)) {
         music.setVolume(50)
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+        maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
         music.playMelody("C5 A - B E - G B ", 120)
+        basic.clearScreen()
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+        maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
     }
 })
