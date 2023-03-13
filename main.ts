@@ -119,15 +119,8 @@ basic.forever(function () {
         music.setVolume(50)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
-        basic.showLeds(`
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            `)
         music.playMelody("C5 A - B E - G B ", 120)
-        basic.clearScreen()
+        basic.pause(100)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
     }
