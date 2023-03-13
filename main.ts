@@ -100,11 +100,15 @@ basic.forever(function () {
     Item = Math.randomBoolean()
     while (Item == true) {
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
+        music.setVolume(60)
+        music.playTone(587, music.beat(BeatFraction.Whole))
         basic.pause(100)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
     }
     while (Item == false) {
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+        music.setVolume(60)
+        music.playTone(587, music.beat(BeatFraction.Whole))
         basic.pause(100)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
     }
